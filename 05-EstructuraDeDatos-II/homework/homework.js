@@ -28,11 +28,14 @@ LinkedList.prototype.add = function(data){
   if(current === null){
     this.head = node;
   }
+
+  while(current.next){
+    current = current.next;
+  }
+  current.next = node;
 }
 
 LinkedList.prototype.remove = function(){
-
-  let current = this.head;
 
   // si esta vacia
   if(this.head === null) return null;
@@ -45,12 +48,15 @@ LinkedList.prototype.remove = function(){
   }
 
   // si tiene varios elementos, la recorre y elimina el ultimo
-  while(current.next.next){
-    current = current.next;
+  else{
+    let current = this.head;
+    while(current.next.next){
+      current = current.next;
+    }
+    let aux1 = current.next;
+    current.next = null;
+    return aux1.value;
   }
-  let aux1 = current.next.value;
-  current.next = null;
-  return aux1;
 }
 LinkedList.prototype.search = function(data){
   if(this.head === null) return null;
