@@ -15,10 +15,17 @@ function BinarySearchTree(value) {
    this.left = null;
 }
 
+//let a = new BinarySearchTree(5);
 
+//         5
+//       /  \
+//     null  6
+//         /  \
+//        null 7
+      
 
-BinarySearchTree.prototype.insert = function(value){
-   if(value > this.value){
+BinarySearchTree.prototype.insert = function(value/*7*/){
+   if(value >= this.value){
       //derecha
       if(this.right == null){
          this.right = new BinarySearchTree(value);
