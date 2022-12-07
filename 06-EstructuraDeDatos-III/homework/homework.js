@@ -15,9 +15,7 @@ function BinarySearchTree(value) {
    this.left = null;
 }
 
-let bst = new BinarySearchTree(5)
-bst.insert(6);
-bst.insert(7);
+
 
 BinarySearchTree.prototype.insert = function(value){
    if(value > this.value){
@@ -81,7 +79,7 @@ BinarySearchTree.prototype.depthFirstForEach = function(cb, order){
    }else if(order === 'post-order'){
       //izq - der - root
       if(this.left != null) this.left.depthFirstForEach(cb, order);
-      if(this,right != null) this.right.depthFirstForEach(cb, order);
+      if(this.right != null) this.right.depthFirstForEach(cb, order);
       cb(this.value);
    }else{
       //in order
@@ -93,6 +91,7 @@ BinarySearchTree.prototype.depthFirstForEach = function(cb, order){
 }
 
 BinarySearchTree.prototype.breadthFirstForEach = function(cb, array = []){
+   //respetar el orden de izq a der.
    if(this.left !== null){
       array.push(this.left);
    }
